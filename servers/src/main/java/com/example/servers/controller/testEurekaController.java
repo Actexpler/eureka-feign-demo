@@ -15,6 +15,16 @@ public class testEurekaController {
 
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String sayHello(@RequestParam("name")String name) {
-        return service.sayHello(name);
+        String result = service.sayHello(name);
+        for( int i = 0; i < 10; i++ ) {
+            System.out.println(i);
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/hello2",method = RequestMethod.GET)
+    public String sayHello2(@RequestParam("name")String name) {
+        System.out.println(name);
+        return "[main-1] hello " + name;
     }
 }

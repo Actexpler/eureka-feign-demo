@@ -14,7 +14,10 @@ public class testEurekaController {
     @Autowired
     private testEurekaService service;
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
-    public String sayHello(@RequestParam("name")String name) {
+    public String sayHello(@RequestParam("name")String name) throws InterruptedException {
+        System.out.println("[main-2]:"+name);
+//        Thread.sleep(2000);
+        System.out.println("I am ok!");
         return service.sayHello(name);
     }
 }
