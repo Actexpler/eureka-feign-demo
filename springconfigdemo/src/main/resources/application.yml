@@ -1,0 +1,39 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Actexpler/spring-cloud-config-start/
+          search-paths: config-repo
+          username: Actexpler
+          password: Wang9459.WC
+    bus:
+      trace:
+        enabled: true
+      refresh:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    virtual-host: /
+    port: 5672
+    username: admin
+    password: asdf1234
+
+#��ӵ� ����ע��
+Eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9090/eureka
+
+
+management:
+  #security:
+    #enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
